@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+</head>
+<body>
+    <h1>Select Category and Number of Questions</h1>
+    <form action="/quiz" method="POST">
+        <label for="category">Choose a category:</label>
+        <select name="category" id="category" required>
+            {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="num_questions">Number of Questions (max 4):</label>
+        <input type="number" name="num_questions" id="num_questions" min="1" max="4" required>
+        <br>
+        <button type="submit">Start Quiz</button>
+    </form>
+</body>
+</html>
+
+
